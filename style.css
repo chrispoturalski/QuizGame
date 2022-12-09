@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Anton', sans-serif;
+
+}
+
+:root {
+    --primary: whitesmoke;
+    --secondary: rgb(23, 237, 237);
+    --tertiary: rgb(224, 251, 21);
+    --fourth: rgb(30, 29, 29);
+}

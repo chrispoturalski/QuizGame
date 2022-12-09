@@ -9,8 +9,11 @@ var answerFour = document.getElementById('option-four')
 var startBtn = document.getElementById('start-game')
 var scoreMessage = document.getElementById('score-message')
 
+
 // Constructing Game Logic
 let currentQuestion = 0;
+var gameRunning = false;
+var timeLeft = 60;
 var score = 0;
 var questions = 
 [
@@ -56,8 +59,31 @@ function remove() {
     startBtn.remove();
 }
 
+function startTimer() {
+    time.textContent = timeLeft + ' seconds remaining';
+    timer = setInterval(() => {
+        timeLeft--;
+        time.textContent = timeLeft + ' seconds remaining';
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            time.style.display = "none"
+            return window.location.assign('./highscore.html')
+        }
+    }, 1000); 
+}
+
+function decreaseTime() {
+    timeLeft -= 5;
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+        time.style.display = "none"
+        return window.location.assign('./highscore.html')
+    }
+}
+
 function nextQuestion() {
     if(currentQuestion>=3){
+        localStorage.setItem('newScore', score)
         return window.location.assign('./highscore.html')
         
 
@@ -78,6 +104,7 @@ function nextQuestion() {
 
 function beginQuiz(){
     currentQuestion = 0;
+    startTimer();
     question.innerHTML = questions[currentQuestion].question;
     answerOne.innerHTML = questions[currentQuestion].answers[0].option;
     answerOne.setAttribute("data-answer", questions[currentQuestion].answers[0].answer)
@@ -86,6 +113,7 @@ function beginQuiz(){
             score+= 10;
         } else {
             console.log("Bad Job!")
+            decreaseTime();
         }
         userScore.innerHTML = score;
         nextQuestion();
@@ -98,6 +126,7 @@ function beginQuiz(){
             score+= 10;
         } else {
             console.log("Bad Job!")
+            decreaseTime();
         }
         userScore.innerHTML = score;
         nextQuestion();
@@ -111,6 +140,7 @@ function beginQuiz(){
             console.log("Good Job")
         } else {
             console.log("Bad Job!")
+            decreaseTime();
         }
         nextQuestion();
     });
@@ -122,6 +152,7 @@ function beginQuiz(){
             console.log("Good Job")
         } else {
             console.log("Bad Job!")
+            decreaseTime();
         }
         nextQuestion();
     });
