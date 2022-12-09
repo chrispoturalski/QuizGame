@@ -6,6 +6,6 @@ var homeBtn = document.getElementById('homeBtn')
 
 
 homeBtn.addEventListener('click', function() {
-    return window.location.assign('./index.html')
+    return window.location.assign('https://chrispoturalski.github.io/QuizGame/')
 })
 
