@@ -1,14 +1,13 @@
 // Pulling variables from HTML document
-var score = document.getElementById('user-score');
-var time = document.getElementById('time-left');
-var question = document.getElementById('question-text');
-var answerOne = document.getElementById('option-one');
-var answerTwo = document.getElementById('option-two');
-var answerThree = document.getElementById('option-three');
-var answerFour = document.getElementById('option-four');
-var previous = document.getElementById('previous');
-var next = document.getElementById('next');
-var submit = document.getElementById('submit');
+var userScore = document.getElementById('user-score')
+var time = document.getElementById('time-left')
+var question = document.getElementById('question-text')
+var answerOne = document.getElementById('option-one')
+var answerTwo = document.getElementById('option-two')
+var answerThree = document.getElementById('option-three')
+var answerFour = document.getElementById('option-four')
+var startBtn = document.getElementById('start-game')
+
 
 // Constructing Game Logic
 let currentQuestion = 0;
@@ -52,3 +51,74 @@ var questions =
         ]
     },
 ]
+
+function remove() {
+    startBtn.remove();
+}
+
+function nextQuestion() {
+    if(currentQuestion>=3){
+        let submitBtn = document.createElement("button");
+        startBtn.innerHTML = "Submit";
+        document.body.appendChild(submitBtn);
+    } else {
+        currentQuestion++;
+    }
+}
+
+
+function beginQuiz(){
+    currentQuestion = 0;
+    question.innerHTML = questions[currentQuestion].question;
+    answerOne.innerHTML = questions[currentQuestion].answers[0].option;
+    answerOne.setAttribute("data-answer", questions[currentQuestion].answers[0].answer)
+    answerOne.addEventListener('click', function(event) {
+        if(event.currentTarget.dataset.answer === 'true') {
+            score+= 10;
+        } else {
+            console.log("Bad Job!")
+        }
+        userScore.innerHTML = score;
+        nextQuestion();
+    });
+
+    answerTwo.innerHTML = questions[currentQuestion].answers[1].option;
+    answerTwo.setAttribute("data-answer", questions[currentQuestion].answers[1].answer)
+    answerTwo.addEventListener('click', function(event) {
+        if(event.currentTarget.dataset.answer === 'true') {
+            score+= 10;
+        } else {
+            console.log("Bad Job!")
+        }
+        userScore.innerHTML = score;
+        nextQuestion();
+
+    });
+
+    answerThree.innerHTML = questions[currentQuestion].answers[2].option;
+    answerThree.setAttribute("data-answer", questions[currentQuestion].answers[2].answer)
+    answerThree.addEventListener('click', function(event) {
+        if(event.currentTarget.dataset.answer === 'true') {
+            console.log("Good Job")
+        } else {
+            console.log("Bad Job!")
+        }
+        nextQuestion();
+    });
+
+    answerFour.innerHTML = questions[currentQuestion].answers[3].option;
+    answerFour.setAttribute("data-answer", questions[currentQuestion].answers[3].answer)
+    answerFour.addEventListener('click', function(event) {
+        if(event.currentTarget.dataset.answer === 'true') {
+            console.log("Good Job")
+        } else {
+            console.log("Bad Job!")
+        }
+        nextQuestion();
+    });
+
+}
+
+//Create Event Listeners for Game
+startBtn.addEventListener('click', beginQuiz)
+console.log(questions[currentQuestion].answers[1].answer)
