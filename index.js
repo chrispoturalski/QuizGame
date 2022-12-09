@@ -115,7 +115,7 @@ function beginQuiz(){
             console.log("Bad Job!")
             decreaseTime();
         }
-        userScore.innerHTML = score;
+        userScore.innerHTML = 'Score: ' + score;
         nextQuestion();
     });
 
@@ -128,7 +128,7 @@ function beginQuiz(){
             console.log("Bad Job!")
             decreaseTime();
         }
-        userScore.innerHTML = score;
+        userScore.innerHTML = 'Score: ' + score;
         nextQuestion();
 
     });
@@ -137,11 +137,12 @@ function beginQuiz(){
     answerThree.setAttribute("data-answer", questions[currentQuestion].answers[2].answer)
     answerThree.addEventListener('click', function(event) {
         if(event.currentTarget.dataset.answer === 'true') {
-            console.log("Good Job")
+            score+= 10;
         } else {
             console.log("Bad Job!")
             decreaseTime();
         }
+        userScore.innerHTML = 'Score: ' + score;
         nextQuestion();
     });
 
@@ -149,11 +150,12 @@ function beginQuiz(){
     answerFour.setAttribute("data-answer", questions[currentQuestion].answers[3].answer)
     answerFour.addEventListener('click', function(event) {
         if(event.currentTarget.dataset.answer === 'true') {
-            console.log("Good Job")
+            score+= 10;
         } else {
             console.log("Bad Job!")
             decreaseTime();
         }
+        userScore.innerHTML = 'Score: ' + score;
         nextQuestion();
     });
 
