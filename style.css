@@ -10,3 +10,204 @@
     --tertiary: rgb(224, 251, 21);
     --fourth: rgb(30, 29, 29);
 }
+
+body {
+    background: url("https://i.makeagif.com/media/9-10-2016/PPCKYi.gif");
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.game-card {
+    background-color: var(--fourth);
+    border: 8px outset var(--tertiary);
+    position: relative;
+    width: 600px;
+    height: 500px;
+    margin: auto;
+    border-radius: 2%;
+}
+
+#score {
+    color: var(--tertiary);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#user-score {
+    color: var(--fourth);
+}
+
+#time-left {
+    color: var(--tertiary);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.card-area {
+    color: var(--fourth);
+}
+
+#question-text {
+    color: var(--tertiary);
+    font-size: 32px;
+    position: absolute;
+    width: auto;
+    left: 0px;
+    right: 0px;
+    top: 75px;
+    text-align: center;
+}
+
+#answer-choices button {
+    color: var(--tertiary);
+    background-color: var(--fourth);
+    border: 2px solid var(--primary);
+    position: absolute;
+    text-align: center;
+    font-size: 24px;
+}
+
+#answer-choices button:hover {
+    background-color: var(--secondary);
+    color: var(--fourth);
+    cursor: pointer;
+}
+
+#answer-choices button:active {
+    background-color: var(--tertiary);
+    color: var(--fourth);
+    cursor: pointer;
+}
+
+#option-one {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 175px;
+}
+
+#option-two {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 225px;
+}
+
+#option-three {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 275px;
+}
+
+#option-four {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 325px;
+}
+
+#start-game {
+    background-color: var(--tertiary);
+    color: var(--fourth);
+    font-size: 24px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 50px;
+    width: auto;
+}
+
+#start-game:hover {
+    background-color: var(--fourth);
+    color: var(--tertiary);
+    cursor: pointer;
+}
+
+#start-game:active {
+    background-color: var(--tertiary);
+    color: var(--fourth);
+    cursor: pointer;
+}
+
+.highscore-card {
+    background-color: var(--fourth);
+    border: 8px outset var(--tertiary);
+    position: relative;
+    width: 600px;
+    height: 500px;
+    margin: auto;
+    border-radius: 2%;
+}
+
+
+.highscore-text {
+    color: var(--tertiary);
+    position: absolute;
+    top: 5px;
+    left: 5px;}
+
+#main-text {
+    position: absolute;
+    left: 145px;
+    top: 25px;
+}
+
+#score-message {
+    position: absolute;
+    left: 145px;
+    top: 75px;
+}
+
+#initials {
+    position: absolute;
+    left: 160px;    
+    top: 125px;
+}
+
+.highscore-form {
+    position: absolute;
+    left: 175px;
+    right: 0px;
+    top: 225px;
+}
+
+#player-name {
+    color: var(--tertiary);
+}
+
+#saveHighscore {
+    background-color: var(--tertiary);
+    color: var(--fourth);
+}
+
+#saveHighscore:hover {
+    background-color: var(--fourth);
+    color: var(--tertiary);
+    cursor: pointer;
+}
+
+#saveHighscore:active {
+    background-color: var(--tertiary);
+    color: var(--fourth);
+    cursor: pointer;
+}
+
+#homeBtn {
+    color: var(--tertiary);
+}
+
+#homeBtn:hover {
+    background-color: var(--tertiary);
+    color: var(--black);
+    cursor: pointer;
+}
+
+#homeBtn:active {
+    background-color: var(--fourth);
+    color: var(--tertiary);
+    cursor: pointer;
+}
