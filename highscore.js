@@ -4,35 +4,30 @@ var saveHighscore = document.getElementById('saveHighscore');
 var homeBtn = document.getElementById('homeBtn')
 var newScore = localStorage.getItem('newScore')
 var playerName = document.getElementById('player-name')
-var score = newScore
+var scores = document.getElementById('highscores-scores')
 
-function saveHighscore() {
-    saveHighscore.addEventListener('click', function(event) {
-        event.preventDefault();
+var highscore = JSON.parse(localStorage.getItem("newScore")) || [];
 
-        var highscore = {
-            playerName: playerName.value,
-            score: score.value,
-        };
-        
+scoreMessage.innerText = "Your score is " + newScore;
 
-        localStorage.setItem("highscore", JSON.stringify(highscore));
-        showLastScore();
-    })
+playerName.addEventListener("keydown", () => {
+    saveHighscore.disabled = !playerName.value;
+});
+
+saveHighscore = e => {
+    e.preventDefault();
+    var score = {
+        score: newScore,
+        name: playerName.value
+    };
+    highscore.push(score);
+    highscore.sort((a, b) => b.score - a.score);
+    highscore.splice(5);
+
+    localStorage.setItem("highscore", JSON.stringify(highscore));
+    window.location.assign("highscore.html");
 }
 
-function showLastScore() {
-    var lastScore = JSON.parse(localStorage.getItem("newScore"));
-    if (lastScore !==  null) {
-        playerName.innerHTML = playerName.value;
-        newScore.innerHTML = newScore.value;
-    } else {
-        return;
-    }
-}
-
-function homepage() {
-    window.location.href = "5500/index.html";
-}
-
-homeBtn.addEventListener('onclick', homepage);
+scores.innerHTML = highscore.map(score => {
+    return `<li class="highscore">${score.name} - ${score.score}</li>`;
+}).join("");

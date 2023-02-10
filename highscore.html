@@ -15,13 +15,13 @@
         <div>
             <form class="highscore-form">
                 <input type="text" id="player-name" placeholder="Enter your name here">
-                <button class="highscoreBtns" id="saveHighscore" type="submit">Save</button>
+                <button class="highscoreBtns" id="saveHighscore" type="submit" onclick="saveHighscore(event)">Save</button>
                 <a href='./index.html' class="highscoreBtns" id="homeBtn" type="submit">Home</a>
             </form>
         </div>
         <div class="highscore-text" id="highscore-list"><h2>High Scores</h2>
             <ol id="highscore-text">
-              <span id="highscore-scores">Chris - 40</span>
+              <span id="highscore-scores"></span>
             </ol>
         </div>
     </div>
