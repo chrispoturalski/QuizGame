@@ -1,33 +1,37 @@
-var scoreMessage = document.getElementById('score-message');
-var initials = document.getElementById('initials');
-var saveHighscore = document.getElementById('saveHighscore');
-var homeBtn = document.getElementById('homeBtn')
-var newScore = localStorage.getItem('newScore')
-var playerName = document.getElementById('player-name')
-var scores = document.getElementById('highscores-scores')
+const scoreMessage = document.getElementById('score-message');
+const initials = document.getElementById('initials');
+const saveHighscore = document.getElementById('saveHighscore');
+const homeBtn = document.getElementById('homeBtn');
+const newScore = localStorage.getItem('newScore');
+const playerName = document.getElementById('player-name');
+const scores = document.getElementById('highscores-scores');
 
-var highscore = JSON.parse(localStorage.getItem("newScore")) || [];
+const highscore = JSON.parse(localStorage.getItem("newScore")) || [];
 
-scoreMessage.innerText = "Your score is " + newScore;
+scoreMessage.innerText = newScore;
+
 
 playerName.addEventListener("keydown", () => {
-    saveHighscore.disabled = !playerName.value;
+    saveHighscore = !playerName.value;
+    console.log(score)
 });
 
 saveHighscore = e => {
     e.preventDefault();
-    var score = {
+    const score = {
         score: newScore,
         name: playerName.value
     };
     highscore.push(score);
-    highscore.sort((a, b) => b.score - a.score);
+    highscore.sort((a, b) => {
+        return b.score - a.score
+    });
     highscore.splice(5);
 
     localStorage.setItem("highscore", JSON.stringify(highscore));
     window.location.assign("highscore.html");
 }
 
-scores.innerHTML = highscore.map(score => {
-    return `<li class="highscore">${score.name} - ${score.score}</li>`;
-}).join("");
+// scores.innerHTML = highscore.map(score => {
+//     return `<li class="highscore">${score.name} - ${score.score}</li>`;
+// }).join("");

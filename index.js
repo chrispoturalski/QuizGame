@@ -82,8 +82,8 @@ function decreaseTime() {
 }
 
 function nextQuestion() {
-    if(currentQuestion>=3){
-        localStorage.setItem('newScore', score)
+    if(currentQuestion>=3 || timeLeft <=0){
+        localStorage.setItem('newScore', userScore)
         return window.location.assign('./highscore.html')
         
 
