@@ -11,12 +11,12 @@
     --fourth: rgb(30, 29, 29);
 }
 
-body {
+/* body {
     background: url("https://i.makeagif.com/media/9-10-2016/PPCKYi.gif");
     background-size:cover;
     background-repeat: no-repeat;
     height: 100vh;
-}
+} */
 
 .game-card {
     background-color: var(--fourth);
@@ -179,38 +179,40 @@ body {
 }
 
 #player-name {
-    color: var(--tertiary);
+    color: var(--fourth);
 }
 
-#saveHighscore {
+.highscoreBtns {
     background-color: var(--tertiary);
     color: var(--fourth);
 }
 
-#saveHighscore:hover {
+.highscoreBtns:hover {
     background-color: var(--fourth);
     color: var(--tertiary);
     cursor: pointer;
 }
 
-#saveHighscore:active {
+.highscoreBtns:active {
     background-color: var(--tertiary);
     color: var(--fourth);
     cursor: pointer;
 }
 
-#homeBtn {
-    color: var(--tertiary);
+#highscore-list {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 250px;
+    text-align: center;
 }
 
-#homeBtn:hover {
-    background-color: var(--tertiary);
-    color: var(--black);
-    cursor: pointer;
-}
-
-#homeBtn:active {
-    background-color: var(--fourth);
+#highscore-list span {
     color: var(--tertiary);
-    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    width: auto;
+    right: 42%;
+    top: 75px;
+    text-align: center;
 }

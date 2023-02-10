@@ -30,3 +30,9 @@ function showLastScore() {
         return;
     }
 }
+
+function homepage() {
+    window.location.href = "5500/index.html";
+}
+
+homeBtn.addEventListener('onclick', homepage);
